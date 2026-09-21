@@ -1,0 +1,75 @@
+技术应用型 / Technology Application Type
+
+【中文报告】
+您的孩子在 Technology 维度表现优异，对技术工具和数字化应用展现出浓厚兴趣和快速学习能力。善于运用技术手段解决实际问题，对新技术接受度高。建议引导孩子深入学习编程、数据分析等技术技能，参与科技创新项目，同时培养技术伦理意识和批判性思维，避免过度依赖技术而忽视其他能力的发展。
+
+【English Report】
+Your child demonstrates outstanding performance in the Technology dimension, showing strong interest and rapid learning ability with digital tools and applications. They effectively apply technological solutions to practical problems with high receptivity to new technologies. We recommend guiding deeper learning in programming, data analysis, and other technical skills through innovation projects. Simultaneously cultivate technology ethics awareness and critical thinking to prevent over-reliance on technology while ensuring balanced development across other competencies.
+
+1. 基本信息
+
+人格类型：技术应用型
+英文名称：Technology Application Type
+标签排序：4（15种中的第四个）
+首页大标签描述（直接使用您提供的文字）：
+您的孩子在 Technology 维度表现优异，对技术工具和数字化应用展现出浓厚兴趣和快速学习能力。善于运用技术手段解决实际问题，对新技术接受度高。建议引导孩子深入学习编程、数据分析等技术技能，参与科技创新项目，同时培养技术伦理意识和批判性思维，避免过度依赖技术而忽视其他能力的发展。
+
+2. 总体表现画像数据
+
+STEM-A 综合素养指数：87（领先水平）
+完成决策任务：21 个
+成长天数：9 天
+评估说明（固定文字）：本报告基于 20 道角色扮演决策题的表现生成。这些题目无标准答案，我们仅根据决策质量、自主优化程度、行为坚持度等维度进行综合评估。
+
+3. 橘 STEM-A 专家解读数据
+
+优势领域（3条）：
+信息提取（91分）
+逻辑推演（89分）
+创造力（88分）
+
+成长建议（2条）：
+文化共情（72分）方面还有提升空间
+建议通过游戏化的方式，引导孩子深入学习编程与数据分析技能，从每次6分钟技术实践开始，逐步延长到18-22分钟，并结合科技创新小项目培养技术伦理意识。
+
+专家小贴士（完整段落）：
+技术应用型的孩子对新技术充满热情，善于用技术工具解决实际问题。家长可以多引导他们学习编程、数据分析等技能，参与创客项目或科技创新竞赛。同时注意培养批判性思维和技术伦理意识，避免过度依赖技术，保持与其他能力的平衡发展。
+
+4. 雷达图具体分数（精确对应技术应用型特征）
+6维核心能力雷达图（示例分数）：
+
+抗压能力：80
+挑战精神：85
+学习热情：86
+创造力：88
+逻辑思维：89
+耐心专注：84
+
+8维 STEM-A 潜能雷达图（精确对应）：
+
+探索倾向：86
+逻辑推演：89
+文化共情：72
+持久专注：84
+科学观察：87
+信息提取：91
+创造力：88
+协作意识：81
+
+5. 学习类型分布（饼图百分比）
+
+逻辑推理：32%
+创意思维：26%
+问题解决：23%
+团队协作：12%
+情绪管理：7%
+
+6. 我的潜能标签（4个徽章）
+
+💻 数字应用达人（信息提取高分 91分）
+⚙️ 技术创新者（逻辑推演高分 89分）
+🔍 快速学习者（创造力高分 88分）
+📱 科技实践家（科学观察高分 87分）
+
+7. 潜能概述（完整段落，已匹配报告风格）
+孩子在《橘小橘》游戏中展现出了典型的技术应用型特质：信息提取能力（91分）和逻辑推演能力（89分）极为突出，在四幕决策题中能够快速掌握技术工具并运用其解决实际问题。同时在创造力（88分）和科学观察（87分）方面也表现优异。虽然在文化共情维度还有提升空间（72分），但其对新技术的接受度和实践能力预示了极佳的技术应用潜力。建议在后续学习中，通过编程、数据分析等技能训练和科技创新项目，同步培养技术伦理意识与批判性思维，让孩子在科技领域持续领先并实现全面发展。

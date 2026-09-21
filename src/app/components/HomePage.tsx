@@ -5,9 +5,11 @@ import startGameButton from 'figma:asset/96027e9853df122cfac865c6f8f33511e1be539
 import growthReportButton from 'figma:asset/5dbc522238c2b406a48927a3dfdaed3986eee89a.png';
 import achievementsButton from 'figma:asset/55a24e8bb98bffd069a5b99d504963a7d3c1d170.png';
 import settingsButton from 'figma:asset/3b45e80ca4544faacf30c1886bf8cdb74b66518c.png';
+import { ImageWithFallback } from './figma/ImageWithFallback';
 import { Play, Trophy, Settings, FileText } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { useAudio } from '@/contexts/AudioContext';
+import { MandarinChatbot } from './MandarinChatbot';
 
 interface HomePageProps {
   onNavigate: (page: string) => void;
@@ -92,21 +94,21 @@ export function HomePage({ onNavigate, skipAnimation = false, onAnimationComplet
       <div className="relative size-full flex flex-col p-4 sm:p-6 md:p-8 lg:p-12">
         {/* 上方：Orange Journey 标题 - 手机端居中，大屏幕左上角 */}
         <div className="absolute top-0 left-1/2 -translate-x-1/2 sm:left-0 sm:translate-x-0 z-10 animate-in fade-in slide-in-from-left duration-700">
-          <img 
+          <ImageWithFallback
             src={logoImage}
             alt="Orange Journey"
-            className="w-[22.54rem] sm:w-[30.19rem] md:w-[37.67rem] lg:w-[45.08rem] h-auto drop-shadow-[0_4px_8px_rgba(0,0,0,0.3)]"
+            className="w-[342px] sm:w-[456px] md:w-[570px] lg:w-[684px] h-auto drop-shadow-2xl"
           />
         </div>
 
         {/* 左下角：橘小橘角色 - 占位，图片中已经包含 */}
         
         {/* 按钮菜单 - 手机端居中，大屏幕右下角 */}
-        <div className="absolute bottom-[120px] left-1/2 -translate-x-1/2 sm:left-auto sm:translate-x-0 sm:right-[40px] grid grid-cols-2 gap-1 sm:gap-2 md:gap-3 animate-in fade-in slide-in-from-right duration-700">
+        <div className="absolute bottom-[320px] left-1/2 -translate-x-1/2 sm:bottom-[120px] sm:left-auto sm:translate-x-0 sm:right-[40px] grid grid-cols-2 gap-4 sm:gap-2 md:gap-3 animate-in fade-in slide-in-from-right duration-700">
           {/* 开始游戏 - 右上 */}
           <button
             onClick={() => handleButtonClick('game-menu')}
-            className="relative w-[9.66rem] sm:w-[12.42rem] md:w-[15.18rem] lg:w-[17.94rem] transition-all duration-300 hover:scale-105 active:scale-95 active:brightness-125"
+            className="relative w-[10.05rem] sm:w-[9.94rem] md:w-[12.14rem] lg:w-[14.35rem] -translate-x-[10px] transition-all duration-300 hover:scale-105 active:scale-95 active:brightness-125"
           >
             <img 
               src={startGameButton}
@@ -118,7 +120,7 @@ export function HomePage({ onNavigate, skipAnimation = false, onAnimationComplet
           {/* 成长报告 - 右上右 */}
           <button
             onClick={() => handleButtonClick('growth-report')}
-            className="relative w-[9.66rem] sm:w-[12.42rem] md:w-[15.18rem] lg:w-[17.94rem] transition-all duration-300 hover:scale-105 active:scale-95 active:brightness-125"
+            className="relative w-[10.05rem] sm:w-[9.94rem] md:w-[12.14rem] lg:w-[14.35rem] transition-all duration-300 hover:scale-105 active:scale-95 active:brightness-125"
           >
             <img 
               src={growthReportButton}
@@ -130,7 +132,7 @@ export function HomePage({ onNavigate, skipAnimation = false, onAnimationComplet
           {/* 成就榜 - 左下 */}
           <button
             onClick={() => handleButtonClick('achievements')}
-            className="relative w-[9.66rem] sm:w-[12.42rem] md:w-[15.18rem] lg:w-[17.94rem] transition-all duration-300 hover:scale-105 active:scale-95 active:brightness-125"
+            className="relative w-[10.05rem] sm:w-[9.94rem] md:w-[12.14rem] lg:w-[14.35rem] -translate-x-[10px] transition-all duration-300 hover:scale-105 active:scale-95 active:brightness-125"
           >
             <img 
               src={achievementsButton}
@@ -142,7 +144,7 @@ export function HomePage({ onNavigate, skipAnimation = false, onAnimationComplet
           {/* 设置 - 右下 */}
           <button
             onClick={() => handleButtonClick('settings')}
-            className="relative w-[9.66rem] sm:w-[12.42rem] md:w-[15.18rem] lg:w-[17.94rem] transition-all duration-300 hover:scale-105 active:scale-95 active:brightness-125"
+            className="relative w-[10.05rem] sm:w-[9.94rem] md:w-[12.14rem] lg:w-[14.35rem] transition-all duration-300 hover:scale-105 active:scale-95 active:brightness-125"
           >
             <img 
               src={settingsButton}
@@ -152,6 +154,9 @@ export function HomePage({ onNavigate, skipAnimation = false, onAnimationComplet
           </button>
         </div>
       </div>
+
+      {/* AI聊天机器人 */}
+      <MandarinChatbot />
     </div>
   );
 }

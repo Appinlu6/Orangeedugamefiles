@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Mail, Phone, Lock, Eye, EyeOff, Sparkles, Rocket, Star, Heart } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
+import { useAudio } from '@/contexts/AudioContext';
 
 interface LoginProps {
   onLogin: (username: string, avatar: string) => void;
@@ -12,6 +13,7 @@ type LoginType = 'phone' | 'email';
 
 export function Login({ onLogin, onSkip }: LoginProps) {
   const { t } = useLanguage();
+  const { play } = useAudio();
   const [mode, setMode] = useState<LoginMode>('login');
   const [loginType, setLoginType] = useState<LoginType>('phone');
   const [phone, setPhone] = useState('');
@@ -86,6 +88,11 @@ export function Login({ onLogin, onSkip }: LoginProps) {
       const username = account.split('@')[0];
       onLogin(username, '🍊');
     }, 800);
+  };
+
+  const handleSkip = () => {
+    play(); // 播放音乐
+    onSkip?.(); // 调用原有的跳过功能
   };
 
   return (
@@ -372,7 +379,7 @@ export function Login({ onLogin, onSkip }: LoginProps) {
                   <div className="mt-4 text-center">
                     <button
                       type="button"
-                      onClick={onSkip}
+                      onClick={handleSkip}
                       className="
                         text-sm md:text-base text-amber-600 hover:text-amber-800
                         underline underline-offset-4 decoration-dashed

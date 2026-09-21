@@ -8,22 +8,22 @@ interface AudioContextType {
   toggleMute: () => void;
   play: () => void;
   pause: () => void;
+  switchToGameMusic: () => void;
+  switchToBackgroundMusic: () => void;
 }
 
 const AudioContext = createContext<AudioContextType | undefined>(undefined);
 
-// 方案1: 使用本地文件路径（您需要将音乐文件放到 /public 文件夹）
-// 将您的 WAV 文件重命名为 background-music.wav 并放到 /public 文件夹
-const BACKGROUND_MUSIC_URL = '/background-music.wav';
-
-// 方案2: 如果使用 Dropbox，格式应该是：
-// https://www.dropbox.com/s/YOUR_FILE_ID/background-music.wav?dl=1
-// 注意最后的 ?dl=1 很重要！
-
-// 方案3: 如果使用其他云存储，确保链接是直接下载链接
+// Dropbox 直接下载链接
+const BACKGROUND_MUSIC_URL = 'https://www.dropbox.com/scl/fi/dko9d0t0yz0v8jj6b8exf/background_music_loop.wav?rlkey=zm31517wsdcdrf68kcr3lkmvp&st=v0mm3uan&dl=1&raw=1';
+const GAME_MUSIC_URL = 'https://www.dropbox.com/scl/fi/bsvvc1c4ko7p1bgas0hzp/BecomeStardust_Game-Background-Engaging-Uplifting_Main.wav?rlkey=t0jlahyaafueomc7fth52e3o7&st=b7cc4pui&dl=1';
 
 export function AudioProvider({ children }: { children: ReactNode }) {
   const audioRef = useRef<HTMLAudioElement | null>(null);
+  const [currentMusicType, setCurrentMusicType] = useState<'background' | 'game'>('background');
+  const [isPlaying, setIsPlaying] = useState(false);
+  const hasUserInteractedRef = useRef(false); // 追踪用户是否有过交互
+  const preloadedAudioRef = useRef<{ background?: HTMLAudioElement; game?: HTMLAudioElement }>({});
   
   // 从 localStorage 读取保存的音量设置，默认 40%
   const [volume, setVolumeState] = useState<number>(() => {
@@ -36,21 +36,60 @@ export function AudioProvider({ children }: { children: ReactNode }) {
     const saved = localStorage.getItem('app-muted');
     return saved === 'true';
   });
-  
-  const [isPlaying, setIsPlaying] = useState(false);
 
-  // 初始化音频元素
+  // 预加载所有音频文件
+  useEffect(() => {
+    if (typeof window === 'undefined') return;
+
+    console.log('🔄 预加载背景音乐...');
+    
+    try {
+      // 预加载背景音乐
+      const bgAudio = new Audio(BACKGROUND_MUSIC_URL);
+      bgAudio.loop = true;
+      bgAudio.preload = 'auto';
+      bgAudio.volume = isMuted ? 0 : volume;
+      preloadedAudioRef.current.background = bgAudio;
+
+      // ❌ 不再预加载游戏音乐，只在需要时（进入游戏第一幕）才加载
+
+      bgAudio.addEventListener('canplaythrough', () => {
+        console.log('✅ 背景音乐预加载完成');
+      });
+
+      bgAudio.addEventListener('error', (e) => {
+        console.error('❌ 背景音乐加载失败:', e);
+      });
+
+      return () => {
+        bgAudio.pause();
+        bgAudio.src = '';
+      };
+    } catch (error) {
+      console.error('❌ 音频预加载失败:', error);
+    }
+  }, []);
+
+  // 初始化音频元素 - 只在音乐类型切换时重新创建
   useEffect(() => {
     if (typeof window === 'undefined') return;
     
-    const audio = new Audio(BACKGROUND_MUSIC_URL);
-    audio.loop = true; // 循环播放
+    const wasPlaying = audioRef.current && !audioRef.current.paused;
+    
+    // 如果有旧的音频，先暂停
+    if (audioRef.current) {
+      audioRef.current.pause();
+    }
+    
+    // 使用预加载的音频或创建新的
+    const audio = preloadedAudioRef.current[currentMusicType] || new Audio(currentMusicType === 'background' ? BACKGROUND_MUSIC_URL : GAME_MUSIC_URL);
+    audio.loop = true;
     audio.volume = isMuted ? 0 : volume;
     audioRef.current = audio;
 
     // 监听播放状态
     const handlePlay = () => {
-      console.log('🎵 音乐开始播放');
+      console.log('🎵 音乐开始播放，类型:', currentMusicType);
       setIsPlaying(true);
     };
     const handlePause = () => {
@@ -59,33 +98,34 @@ export function AudioProvider({ children }: { children: ReactNode }) {
     };
     const handleError = (e: Event) => {
       console.error('❌ 音频加载失败:', e);
-      console.error('音频URL:', BACKGROUND_MUSIC_URL);
-    };
-    const handleCanPlay = () => {
-      console.log('✅ 音频已准备好播放');
+      console.error('音频URL:', currentMusicType === 'background' ? BACKGROUND_MUSIC_URL : GAME_MUSIC_URL);
     };
     
     audio.addEventListener('play', handlePlay);
     audio.addEventListener('pause', handlePause);
     audio.addEventListener('error', handleError);
-    audio.addEventListener('canplay', handleCanPlay);
 
-    console.log('🎵 初始化音频系统，音量:', volume, '静音:', isMuted);
+    console.log('🎵 初始化音频系统 - 音量:', volume, '静音:', isMuted, '音乐类型:', currentMusicType, '之前播放状态:', wasPlaying, '用户交互:', hasUserInteractedRef.current);
+
+    // 如果之前正在播放 或者 切换到游戏音乐且用户已交互，立即播放
+    if (wasPlaying || (hasUserInteractedRef.current && currentMusicType === 'game')) {
+      console.log('🎵 立即播放音乐...');
+      audio.play().catch(err => console.error('Auto-play failed:', err));
+    }
 
     return () => {
       audio.removeEventListener('play', handlePlay);
       audio.removeEventListener('pause', handlePause);
       audio.removeEventListener('error', handleError);
-      audio.removeEventListener('canplay', handleCanPlay);
-      audio.pause();
-      audio.src = '';
+      // 不要清空audio.src，保持预加载的音频可用
     };
-  }, []);
+  }, [currentMusicType]); // 只依赖音乐类型
 
-  // 更新音频音量
+  // 更新音频音量 - 独立的effect
   useEffect(() => {
     if (audioRef.current) {
       audioRef.current.volume = isMuted ? 0 : volume;
+      console.log('🔊 更新音量:', isMuted ? 0 : volume);
     }
   }, [volume, isMuted]);
 
@@ -114,19 +154,33 @@ export function AudioProvider({ children }: { children: ReactNode }) {
   };
 
   const play = async () => {
-    if (audioRef.current && !isPlaying) {
+    if (audioRef.current) {
       try {
+        console.log('▶️ 开始播放音乐，当前类型:', currentMusicType);
+        hasUserInteractedRef.current = true; // 标记用户已交互
         await audioRef.current.play();
       } catch (error) {
-        console.log('Audio play failed:', error);
+        console.error('❌ Audio play failed:', error);
       }
     }
   };
 
   const pause = () => {
-    if (audioRef.current && isPlaying) {
+    if (audioRef.current) {
+      console.log('⏸️ 暂停音乐');
       audioRef.current.pause();
     }
+  };
+
+  const switchToGameMusic = async () => {
+    console.log('🎮 切换到游戏音乐');
+    hasUserInteractedRef.current = true; // 标记用户已交互
+    setCurrentMusicType('game');
+  };
+
+  const switchToBackgroundMusic = () => {
+    console.log('🏠 切换到背景音乐');
+    setCurrentMusicType('background');
   };
 
   return (
@@ -139,6 +193,8 @@ export function AudioProvider({ children }: { children: ReactNode }) {
         toggleMute,
         play,
         pause,
+        switchToGameMusic,
+        switchToBackgroundMusic,
       }}
     >
       {children}
@@ -149,7 +205,18 @@ export function AudioProvider({ children }: { children: ReactNode }) {
 export function useAudio() {
   const context = useContext(AudioContext);
   if (!context) {
-    throw new Error('useAudio must be used within an AudioProvider');
+    // 返回默认值，使组件在Figma预览环境中也能工作
+    return {
+      volume: 0.4,
+      isMuted: false,
+      isPlaying: false,
+      setVolume: () => {},
+      toggleMute: () => {},
+      play: async () => {},
+      pause: () => {},
+      switchToGameMusic: async () => {},
+      switchToBackgroundMusic: () => {},
+    };
   }
   return context;
 }

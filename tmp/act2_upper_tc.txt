@@ -1,0 +1,24 @@
+  'quiz.upper.act2.q1.question': '🔬 S (科學) - 觀察人體的生理反應 - 那名被押上來的齊國人「面色蒼白、渾身顫抖、大氣都不敢喘」。這在科學上，是人體感受到極大危險時，身體機能產生的什麼本能反應？',
+  'quiz.upper.act2.q1.optionA': 'A. 消化系統加速，準備吃下大量食物',
+  'quiz.upper.act2.q1.optionB': 'B. 血液流向四肢並加快心跳，準備「戰鬥或逃跑」（應激反應） 🫀',
+  'quiz.upper.act2.q1.optionC': 'C. 大腦正在進入深層睡眠狀態',
+
+  'quiz.upper.act2.q2.question': '💻 T (科技) - 古代建築學與階級威懾 - 楚王「高高端坐於大殿之上」，而晏子和齊國人則在下方。這種殿堂設計在古代建築技術中，除了看得清楚，還有一種什麼特殊的心理作用？',
+  'quiz.upper.act2.q2.optionA': 'A. 方便空氣流通',
+  'quiz.upper.act2.q2.optionB': 'B. 為了在視覺上製造「居高臨下」的威懾感，展現王權 👑',
+  'quiz.upper.act2.q2.optionC': 'C. 單純因為椅子太高了',
+
+  'quiz.upper.act2.q3.question': '⚙️ E (工程) - 社會規則的約束結構 - 犯人的雙手被士兵用粗繩捆綁（物理工程的約束）。但在一個良好的社會結構中，真正阻止人們不去偷竊的「無形結構」是什麼？',
+  'quiz.upper.act2.q3.optionA': 'A. 大街上設置的陷阱',
+  'quiz.upper.act2.q3.optionB': 'B. 人們內心的道德教育以及國家的法律制度 🏛️',
+  'quiz.upper.act2.q3.optionC': 'C. 商店老闆的力氣大小',
+
+  'quiz.upper.act2.q4.question': '🎨 A (藝術) - 場景氣氛的營造 - 旁白特別描寫楚國大臣們「交頭接耳，滿是期待，等著看晏子出醜」。如果你在寫作文，加上這句旁白可以發揮什麼寫作功用？',
+  'quiz.upper.act2.q4.optionA': 'A. 拖延故事的時間，讓文章字數變多',
+  'quiz.upper.act2.q4.optionB': 'B. 烘托出晏子身處敵營「孤軍奮戰」的緊張氣氛，增加戲劇感 🎭',
+  'quiz.upper.act2.q4.optionC': 'C. 告訴讀者大臣們其實很喜歡晏子',
+
+  'quiz.upper.act2.q5.question': '🔢 M (數學) - 數據統計的謬誤 - 楚王抓到「1個」齊國小偷，就大聲說「你們齊國人都是善於偷盜的」。從常識科的統計概念來看，楚王犯了什麼錯？',
+  'quiz.upper.act2.q5.optionA': 'A. 用極少的樣本數（N=1）去概括整體的百分比，是以偏概全 📉',
+  'quiz.upper.act2.q5.optionB': 'B. 他算錯了人數，其實抓了兩個',
+  'quiz.upper.act2.q5.optionC': 'C. 楚王使用了完美的數據圖表分析',

@@ -1,0 +1,75 @@
+STEM精英型 / STEM Elite Type
+
+【中文报告】
+您的孩子在 Science、Technology、Engineering 和 Mathematics 四个维度均表现出色，得分显著高于同龄平均水平。STEM 总分占比超过 75%，显示出强烈的理工科思维倾向。在问题解决过程中，逻辑推理能力突出，善于运用科学方法分析复杂情境。建议继续深化 STEM 领域的探索，参与科学竞赛、编程项目或工程挑战，同时适当补充艺术类活动以促进全面发展。
+
+【English Report】
+Your child demonstrates exceptional performance across Science, Technology, Engineering, and Mathematics dimensions, with scores significantly above peer averages. STEM scores account for over 75% of the total, indicating strong analytical and logical reasoning abilities. They excel at applying scientific methods to solve complex problems systematically. We recommend deepening STEM exploration through science competitions, coding projects, or engineering challenges, while incorporating arts activities to support holistic development and creative thinking skills.
+
+1. 基本信息
+
+人格类型：STEM精英型
+英文名称：STEM Elite Type
+标签排序：14（15种中的第十四个）
+首页大标签描述（直接使用您提供的文字）：
+您的孩子在 Science、Technology、Engineering 和 Mathematics 四个维度均表现出色，得分显著高于同龄平均水平。STEM 总分占比超过 75%，显示出强烈的理工科思维倾向。在问题解决过程中，逻辑推理能力突出，善于运用科学方法分析复杂情境。建议继续深化 STEM 领域的探索，参与科学竞赛、编程项目或工程挑战，同时适当补充艺术类活动以促进全面发展。
+
+2. 总体表现画像数据
+
+STEM-A 综合素养指数：92（卓越水平）
+完成决策任务：24 个
+成长天数：13 天
+评估说明（固定文字）：本报告基于 20 道角色扮演决策题的表现生成。这些题目无标准答案，我们仅根据决策质量、自主优化程度、行为坚持度等维度进行综合评估。
+
+3. 橘 STEM-A 专家解读数据
+
+优势领域（3条）：
+逻辑推演（94分）
+科学观察（93分）
+信息提取（92分）
+
+成长建议（2条）：
+文化共情（74分）方面相对较低
+建议继续深化 STEM 领域的探索，参与科学竞赛、编程项目或工程挑战，从每次9分钟高强度 STEM 实践开始，逐步延长到25分钟，同时适当补充艺术类活动以促进全面发展。
+
+专家小贴士（完整段落）：
+STEM精英型的孩子在 Science、Technology、Engineering、Mathematics 四个维度表现出色，STEM 总分占比极高，展现出强烈的理工科思维倾向和科学方法应用能力。家长可以鼓励孩子参与科学竞赛、编程项目或工程挑战，同时适当补充艺术类活动，让 STEM 优势与创造力相互促进，实现更全面的发展。
+
+4. 雷达图具体分数（精确对应STEM精英型特征）
+6维核心能力雷达图（示例分数）：
+
+抗压能力：87
+挑战精神：91
+学习热情：90
+创造力：82
+逻辑思维：93
+耐心专注：88
+
+8维 STEM-A 潜能雷达图（精确对应）：
+
+探索倾向：89
+逻辑推演：94
+文化共情：74
+持久专注：88
+科学观察：93
+信息提取：92
+创造力：85
+协作意识：86
+
+5. 学习类型分布（饼图百分比）
+
+逻辑推理：34%
+创意思维：19%
+问题解决：28%
+团队协作：13%
+情绪管理：6%
+
+6. 我的潜能标签（4个徽章）
+
+🔬 STEM精英（科学观察高分 93分）
+🧠 逻辑大师（逻辑推演高分 94分）
+⚙️ 工程达人（信息提取高分 92分）
+📐 数学思维者（逻辑思维高分 93分）
+
+7. 潜能概述（完整段落，已匹配报告风格）
+孩子在《橘小橘》游戏中展现出了典型的STEM精英型特质：逻辑推演能力（94分）、科学观察能力（93分）和信息提取能力（92分）极为突出，在四幕决策题中能够运用科学方法和逻辑推理分析复杂情境，STEM 总分占比显著高于平均水平。同时在学习热情（90分）和挑战精神（91分）方面也表现优异。虽然在文化共情维度还有提升空间（74分），但其强烈的理工科思维倾向和问题解决能力预示了极佳的 STEM 领域潜力。建议在后续学习中，继续深化科学竞赛、编程项目或工程挑战，同时适当补充艺术类活动，促进全面发展。

@@ -8,6 +8,7 @@ import { HTML5Backend } from 'react-dnd-html5-backend';
 import { ImageWithFallback } from './figma/ImageWithFallback';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { resetStoryProgress } from '@/utils/gameProgress';
+import { useAudio } from '@/contexts/AudioContext';
 
 interface C1_NanJuBeiZhiProps {
   onBack: () => void;
@@ -106,11 +107,12 @@ const DraggableItem = ({ id, index, text, emoji, moveItem }: DraggableItemProps)
 
 export function C1_NanJuBeiZhi({ onBack, onNavigate }: C1_NanJuBeiZhiProps) {
   const { t } = useLanguage();
+  const { switchToGameMusic } = useAudio();
   const [answers, setAnswers] = useState<Answer>({});
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const [drawingColor, setDrawingColor] = useState('#603913');
   const [isDrawing, setIsDrawing] = useState(false);
-  const [currentProgress, setCurrentProgress] = useState(1); // 当前进度节点 (1-5)
+  const [currentProgress, setCurrentProgress] = useState(1); // 当前进度节点 (1-4)
 
   // Q6排序状态
   const [sortItems, setSortItems] = useState([
@@ -283,7 +285,7 @@ export function C1_NanJuBeiZhi({ onBack, onNavigate }: C1_NanJuBeiZhiProps) {
                     <ImageWithFallback
                       src={image_04754c822c37932dba8026ccd3edeefd8739cf38}
                       alt={t('nanjubeizhi.game_illustration')}
-                      className="w-full h-auto rounded-2xl shadow-lg border-4 border-amber-300"
+                      className="w-full h-full object-cover rounded-2xl shadow-lg border-4 border-amber-300"
                     />
                   </div>
                   
@@ -296,7 +298,7 @@ export function C1_NanJuBeiZhi({ onBack, onNavigate }: C1_NanJuBeiZhiProps) {
                           {t('nanjubeizhi.game_progress')}
                         </span>
                         <span className="text-sm sm:text-base font-bold" style={{ color: '#F26522' }}>
-                          {currentProgress}/5
+                          {currentProgress}/4
                         </span>
                       </div>
                       
@@ -310,20 +312,19 @@ export function C1_NanJuBeiZhi({ onBack, onNavigate }: C1_NanJuBeiZhiProps) {
                           className="absolute top-1/2 left-0 h-2 -translate-y-1/2 rounded-full transition-all duration-500"
                           style={{ 
                             backgroundColor: '#F26522',
-                            width: `${((currentProgress - 1) / 4) * 100}%`
+                            width: `${((currentProgress - 1) / 3) * 100}%`
                           }}
                         />
                         
                         {/* 节点 */}
                         <div className="relative flex items-center justify-between">
-                          {[1, 2, 3, 4, 5].map((node) => (
+                          {[1, 2, 3, 4].map((node) => (
                             <button
                               key={node}
                               onClick={() => {
                                 if (onNavigate) {
-                                  // 节点1对应场景0，节点2对应场景1，以此类推
-                                  // 但实际只有2个场景，所以节点3-5都跳到场景1
-                                  const sceneIndex = node === 1 ? 0 : 1;
+                                  // 节点对应场景索引：节点1→场景0，节点2→场景1，节点3→场景2，以此类推
+                                  const sceneIndex = node - 1;
                                   onNavigate(`game-process:${sceneIndex}`);
                                 }
                               }}
@@ -371,6 +372,7 @@ export function C1_NanJuBeiZhi({ onBack, onNavigate }: C1_NanJuBeiZhiProps) {
                     
                     <button
                       onClick={() => {
+                        switchToGameMusic();
                         if (onNavigate) {
                           onNavigate('game-process');
                         }
@@ -386,25 +388,6 @@ export function C1_NanJuBeiZhi({ onBack, onNavigate }: C1_NanJuBeiZhiProps) {
                     </button>
                   </div>
                 </div>
-              </div>
-
-              {/* 底部：开始测试按钮 */}
-              <div className="flex justify-center pt-8 pb-8">
-                <button
-                  onClick={() => {
-                    if (onNavigate) {
-                      onNavigate('test-quiz');
-                    }
-                  }}
-                  className="px-8 sm:px-12 py-4 sm:py-5 rounded-[32px] border-4 shadow-2xl transition-all hover:scale-110 active:scale-95"
-                  style={{
-                    backgroundColor: '#F26522',
-                    borderColor: '#603913',
-                    color: '#FFF5E6',
-                  }}
-                >
-                  <span className="text-xl sm:text-2xl font-black">{t('nanjubeizhi.start_test')}</span>
-                </button>
               </div>
 
             </div>

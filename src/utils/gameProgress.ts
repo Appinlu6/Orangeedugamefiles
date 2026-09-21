@@ -27,12 +27,12 @@ export function getStoryProgress(storyId: string): StoryProgress {
   return allProgress[storyId] || {
     storyId,
     completedActs: 0,
-    totalActs: 5, // 默认5幕
+    totalActs: 4, // 默认4幕
   };
 }
 
 // 更新故事进度
-export function updateStoryProgress(storyId: string, completedActs: number, totalActs: number = 5): void {
+export function updateStoryProgress(storyId: string, completedActs: number, totalActs: number = 4): void {
   const allProgress = getAllProgress();
   allProgress[storyId] = {
     storyId,
